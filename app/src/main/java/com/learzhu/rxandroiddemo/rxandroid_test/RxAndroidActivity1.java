@@ -3,8 +3,8 @@ package com.learzhu.rxandroiddemo.rxandroid_test;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -20,12 +20,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 public class RxAndroidActivity1 extends AppCompatActivity {
+    private static final String TAG = "RxAndroidActivity1";
+    public static int REQUEST_CODE = 0x1;
+
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, RxAndroidActivity1.class);
         context.startActivity(intent);
     }
-
-    private static final String TAG = "RxAndroidActivity1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,9 @@ public class RxAndroidActivity1 extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                RxAndroidActivity2.actionStartForResult(RxAndroidActivity1.this, REQUEST_CODE);
             }
         });
     }
@@ -132,4 +134,8 @@ public class RxAndroidActivity1 extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

@@ -1,16 +1,19 @@
 package com.learzhu.rxandroiddemo.rxandroid_test;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.learzhu.rxandroiddemo.BuildConfig;
 import com.learzhu.rxandroiddemo.R;
 import com.learzhu.rxandroiddemo.login.response.LoginResponse;
 import com.learzhu.rxandroiddemo.login.view.Api;
@@ -36,6 +39,11 @@ public class RxAndroidActivity2 extends AppCompatActivity {
         context.startActivity(intent);
     }
 
+    public static void actionStartForResult(Activity activity, int requestCode) {
+        Intent intent = new Intent(activity, RxAndroidActivity2.class);
+        activity.startActivityForResult(intent, requestCode);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +56,14 @@ public class RxAndroidActivity2 extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//                RxAndroidActivity3.actionStart(RxAndroidActivity2.this);
+//                finish();
+                Uri uri = Uri.parse("package:" + BuildConfig.APPLICATION_ID);
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, uri);
+                startActivity(intent);
+//                finish();
             }
         });
         test();

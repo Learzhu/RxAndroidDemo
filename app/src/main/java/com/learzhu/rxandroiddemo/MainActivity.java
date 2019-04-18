@@ -29,6 +29,8 @@ import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity2;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity3;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity4;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity5;
+import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity6;
+import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity7;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -156,6 +158,12 @@ public class MainActivity<onDestory> extends AppCompatActivity {
                         break;
                     case 4:
                         RxAndroidActivity5.actionStart(MainActivity.this);
+                        break;
+                    case 5:
+                        RxAndroidActivity6.actionStart(MainActivity.this);
+                        break;
+                    case 6:
+                        RxAndroidActivity7.actionStart(MainActivity.this);
                         break;
                 }
             }
