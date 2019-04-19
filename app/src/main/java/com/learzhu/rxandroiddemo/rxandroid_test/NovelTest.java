@@ -103,7 +103,7 @@ public class NovelTest {
                     FileReader reader = new FileReader(pathName);
                     BufferedReader bufferedReader = new BufferedReader(reader);
                     String string;
-                    while ((string = bufferedReader.readLine()) != null && !emitter.isCancelled()) {
+                    while ((string = bufferedReader.readLine()) != null && !emitter.isCancelled()) { //此处特别注意是没有被取消才请求
                         while (emitter.requested() == 0) {
                             if (emitter.isCancelled()) {
                                 break;

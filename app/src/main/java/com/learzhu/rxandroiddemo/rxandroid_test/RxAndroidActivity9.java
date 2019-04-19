@@ -367,7 +367,7 @@ public class RxAndroidActivity9 extends AppCompatActivity {
                     FileReader reader = new FileReader(pathName);
                     BufferedReader bufferedReader = new BufferedReader(reader);
                     String string;
-                    while ((string = bufferedReader.readLine()) != null && emitter.isCancelled()) {
+                    while ((string = bufferedReader.readLine()) != null && !emitter.isCancelled()) {
                         while (emitter.requested() == 0) {
                             if (emitter.isCancelled()) {
                                 break;
