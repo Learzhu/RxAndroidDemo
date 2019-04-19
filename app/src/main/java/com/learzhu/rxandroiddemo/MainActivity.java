@@ -31,6 +31,8 @@ import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity4;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity5;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity6;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity7;
+import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity8;
+import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity9;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -93,6 +95,7 @@ public class MainActivity<onDestory> extends AppCompatActivity {
         mDrawables = new ArrayList<>();
 
         mDrawableRes = new int[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
+                R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
                 R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
                 R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
                 R.mipmap.ic_launcher, R.mipmap.ic_launcher_round};
@@ -164,6 +167,12 @@ public class MainActivity<onDestory> extends AppCompatActivity {
                         break;
                     case 6:
                         RxAndroidActivity7.actionStart(MainActivity.this);
+                        break;
+                    case 7:
+                        RxAndroidActivity8.actionStart(MainActivity.this);
+                        break;
+                    case 8:
+                        RxAndroidActivity9.actionStart(MainActivity.this);
                         break;
                 }
             }
@@ -579,6 +588,11 @@ public class MainActivity<onDestory> extends AppCompatActivity {
                 });
     }
 
+    /**
+     * 保存图片并显示到列表
+     *
+     * @param drawableRes
+     */
     private void complicatedDoSomething(final int[] drawableRes) {
         Observable.create(new ObservableOnSubscribe<Drawable>() {
             @Override

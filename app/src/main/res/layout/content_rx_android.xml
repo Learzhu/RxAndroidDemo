@@ -15,9 +15,9 @@
         android:padding="20dp"
         android:text="Start"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@id/tv1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginTop="300dp"/>
 
     <TextView

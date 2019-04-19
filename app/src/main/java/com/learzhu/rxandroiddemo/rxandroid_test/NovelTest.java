@@ -2,6 +2,17 @@ package com.learzhu.rxandroiddemo.rxandroid_test;
 
 import android.util.Log;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -23,9 +34,16 @@ import io.reactivex.schedulers.Schedulers;
 public class NovelTest {
     private static final String TAG = "NovelTest";
     private static Disposable sDisposable;
+    private static Subscription mSubscription;
 
     public static void main(String args[]) {
-        sReadNovel();
+//        sReadNovel();
+        sReadNovel1();
+        try {
+            Thread.sleep(10000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void sReadNovel() {
@@ -73,5 +91,64 @@ public class NovelTest {
         //产生线程
         novel.subscribeOn(Schedulers.io());
         novel.observeOn(Schedulers.newThread());
+    }
+
+    private static void sReadNovel1() {
+        Flowable.create(new FlowableOnSubscribe<String>() {
+            @Override
+            public void subscribe(FlowableEmitter<String> emitter) throws Exception {
+                try {
+                    String pathName = "E:\\Learzhu\\AndroidFramework\\RxAndroidDemo\\app\\src\\main\\res\\raw\\novel.txt";
+//                    FileReader reader = new FileReader("novel.txt");
+                    FileReader reader = new FileReader(pathName);
+                    BufferedReader bufferedReader = new BufferedReader(reader);
+                    String string;
+                    while ((string = bufferedReader.readLine()) != null && !emitter.isCancelled()) {
+                        while (emitter.requested() == 0) {
+                            if (emitter.isCancelled()) {
+                                break;
+                            }
+                        }
+                        emitter.onNext(string);
+                    }
+                    bufferedReader.close();
+                    reader.close();
+                    emitter.onComplete();
+                } catch (IOException e) {
+//                    e.printStackTrace();
+                    emitter.onError(e);
+                }
+            }
+        }, BackpressureStrategy.ERROR)
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.newThread())
+                .subscribe(new Subscriber<String>() {
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        mSubscription = s;
+                        s.request(1);
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        System.out.println(s);
+                        try {
+                            Thread.sleep(1000);
+                            mSubscription.request(1);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        System.out.println(t);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }
