@@ -33,6 +33,7 @@ import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity6;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity7;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity8;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity9;
+import com.learzhu.rxandroiddemo.rxjava2.Rxjava2Activity1;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -95,6 +96,7 @@ public class MainActivity<onDestory> extends AppCompatActivity {
         mDrawables = new ArrayList<>();
 
         mDrawableRes = new int[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
+                R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
                 R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
                 R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
                 R.mipmap.ic_launcher, R.mipmap.ic_launcher_round,
@@ -174,6 +176,9 @@ public class MainActivity<onDestory> extends AppCompatActivity {
                     case 8:
                         RxAndroidActivity9.actionStart(MainActivity.this);
                         break;
+                    case 9:
+                        Rxjava2Activity1.actionStart(MainActivity.this);
+                        break;
                 }
             }
         });
@@ -197,7 +202,6 @@ public class MainActivity<onDestory> extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
