@@ -138,7 +138,11 @@ public class MainActivity<onDestory> extends AppCompatActivity {
                 TextView name = (TextView) layout.findViewById(R.id.name);
                 TextView mark = (TextView) layout.findViewById(R.id.mark);
                 face.setImageDrawable(mDrawables.get(position));
-                name.setText("Activity" + (position + 1));
+                if (position == 9) {
+                    name.setText("Rxjava2Activity1");
+                } else {
+                    name.setText("Activity" + (position + 1));
+                }
                 mark.setText(position + 1 + "");
                 return layout;
             }

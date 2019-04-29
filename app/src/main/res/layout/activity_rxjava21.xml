@@ -1,135 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              tools:context=".rxjava2.Rxjava2Activity1">
-
-    <TextView
-        android:id="@+id/tv_operators"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        tools:text="android"/>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".rxjava2.Rxjava2Activity1">
+
+        <TextView
+            android:id="@+id/tv_operators"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            tools:text="android"/>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_create"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="create"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_map"
-                android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/btn_create"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="create"/>
+
+                <Button
+                    android:id="@+id/btn_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="map"/>
+
+                <Button
+                    android:id="@+id/btn_zip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="zip"/>
+
+                <Button
+                    android:id="@+id/btn_concat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Concat"/>
+
+                <Button
+                    android:id="@+id/btn_flat_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FlatMap"/>
+
+                <Button
+                    android:id="@+id/btn_concat_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ConcatMap"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="map"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_zip"
-                android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/btn_distinct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DISTINCT"/>
+
+                <Button
+                    android:id="@+id/btn_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FILTER"/>
+
+                <Button
+                    android:id="@+id/btn_buffer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BUFFER"/>
+
+                <Button
+                    android:id="@+id/btn_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TIMER"/>
+
+                <Button
+                    android:id="@+id/btn_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INTERVAL"/>
+
+                <Button
+                    android:id="@+id/btn_do_on_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DO_ON_NEXT"/>
+
+                <Button
+                    android:id="@+id/btn_skip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SKIIP"/>
+
+                <Button
+                    android:id="@+id/btn_take"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TAKE"/>
+
+                <Button
+                    android:id="@+id/btn_just"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JUST"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="zip"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_concat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Concat"/>
+                <Button
+                    android:id="@+id/btn_single"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SINGLE"/>
 
-            <Button
-                android:id="@+id/btn_flat_map"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FlatMap"/>
+                <Button
+                    android:id="@+id/btn_debounce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DEBOUNCE"/>
 
-            <Button
-                android:id="@+id/btn_concat_map"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ConcatMap"/>
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btn_defer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DEFER"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+                <Button
+                    android:id="@+id/btn_last"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LAST"/>
 
-            <Button
-                android:id="@+id/btn_distinct"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DISTINCT"/>
+                <Button
+                    android:id="@+id/btn_merge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MERGE"/>
 
-            <Button
-                android:id="@+id/btn_filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FILTER"/>
+                <Button
+                    android:id="@+id/btn_reduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REDUCE"/>
 
-            <Button
-                android:id="@+id/btn_buffer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BUFFER"/>
+                <Button
+                    android:id="@+id/btn_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SCAN"/>
 
-            <Button
-                android:id="@+id/btn_timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TIMER"/>
-
-            <Button
-                android:id="@+id/btn_interval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="INTERVAL"/>
-
-            <Button
-                android:id="@+id/btn_do_on_next"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DO_ON_NEXT"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btn_skip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SKIIP"/>
-
-            <Button
-                android:id="@+id/btn_take"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TAKE"/>
-
-            <Button
-                android:id="@+id/btn_just"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="JUST"/>
+                <Button
+                    android:id="@+id/btn_window"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WINDOW"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
