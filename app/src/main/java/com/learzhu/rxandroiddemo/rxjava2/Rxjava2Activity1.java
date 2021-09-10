@@ -85,24 +85,20 @@ public class Rxjava2Activity1 extends AppCompatActivity implements View.OnClickL
      * 为了方便大家的认知，以后的教程中统一把被观察者 Observable 称为发射器（上游事件），观察者 Observer 称为接收器（下游事件）。
      */
     private void testOperatorCreate() {
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-
-            @Override
-            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
-                mRxOperatorsText.append("Observable emit 1" + "\n");
-                Log.e(TAG, "Observable emit 1" + "\n");
-                e.onNext(1);
-                mRxOperatorsText.append("Observable emit 2" + "\n");
-                Log.e(TAG, "Observable emit 2" + "\n");
-                e.onNext(2);
-                mRxOperatorsText.append("Observable emit 3" + "\n");
-                Log.e(TAG, "Observable emit 3" + "\n");
-                e.onNext(3);
-                e.onComplete();
-                mRxOperatorsText.append("Observable emit 4" + "\n");
-                Log.e(TAG, "Observable emit 4" + "\n");
-                e.onNext(4);
-            }
+        Observable.create((ObservableOnSubscribe<Integer>) e -> {
+            mRxOperatorsText.append("Observable emit 1" + "\n");
+            Log.e(TAG, "Observable emit 1" + "\n");
+            e.onNext(1);
+            mRxOperatorsText.append("Observable emit 2" + "\n");
+            Log.e(TAG, "Observable emit 2" + "\n");
+            e.onNext(2);
+            mRxOperatorsText.append("Observable emit 3" + "\n");
+            Log.e(TAG, "Observable emit 3" + "\n");
+            e.onNext(3);
+            e.onComplete();
+            mRxOperatorsText.append("Observable emit 4" + "\n");
+            Log.e(TAG, "Observable emit 4" + "\n");
+            e.onNext(4);
         }).subscribe(new Observer<Integer>() {
             private int i;
             private Disposable mDisposable;

@@ -1,7 +1,6 @@
 package com.learzhu.rxandroiddemo;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
@@ -34,6 +33,8 @@ import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity7;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity8;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity9;
 import com.learzhu.rxandroiddemo.rxjava2.Rxjava2Activity1;
+import com.learzhu.rxandroiddemo.utils.BitmapUtils;
+import com.learzhu.rxandroiddemo.utils.LogUtils;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -611,9 +612,17 @@ public class MainActivity<onDestory> extends AppCompatActivity {
                         //第四个图片延时3秒后加载
                         sleep(3000);
                     }
-                    if (i == 3) {
-                        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-                        saveBitmap(bitmap, "test.png", Bitmap.CompressFormat.PNG);
+                    try {
+                        if (i == 3) {
+//                            Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+//                            AdaptiveIconDrawable  bitmap = ((AdaptiveIconDrawable) drawable).get;
+                            Bitmap icon = BitmapUtils.getBitmapFromDrawable(MainActivity.this.getApplicationInfo().loadIcon(MainActivity.this.getPackageManager()));
+                            Bitmap bitmap = BitmapUtils.getBitmapFromDrawable(drawable);
+                            saveBitmap(bitmap, "test.png", Bitmap.CompressFormat.PNG);
+                        }
+                    } catch (Exception e) {
+                        LogUtils.e(TAG, "subscribe() called with: " + "emitter = [" + emitter + "]" + "\n" + e);
+                        e.printStackTrace();
                     }
                     //上传到网络
                     if (i == 1) {
@@ -638,6 +647,13 @@ public class MainActivity<onDestory> extends AppCompatActivity {
     private void updateIcon(Drawable drawable) {
     }
 
+    /**
+     * 需要权限
+     *
+     * @param bitmap
+     * @param name
+     * @param format
+     */
     private void saveBitmap(Bitmap bitmap, String name, Bitmap.CompressFormat format) {
         // 创建一个位于SD卡上的文件
         File file = new File(Environment.getExternalStorageDirectory(), name);
