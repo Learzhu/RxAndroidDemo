@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.learzhu.rxandroiddemo">
+    package="com.learzhu.rxandroiddemo">
 
     <application
         android:allowBackup="true"
@@ -9,55 +9,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rxjava2.Rxjava2Activity1"></activity>
+        <activity android:name=".login.LoginActivity"></activity>
+        <activity android:name=".rxjava2.Rxjava2Activity1" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity1"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity2"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity3"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity4"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity5"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity6"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity7"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity8"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity9"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".rxandroid_test.RxAndroidActivity10"
             android:label="@string/title_activity_rx_android"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

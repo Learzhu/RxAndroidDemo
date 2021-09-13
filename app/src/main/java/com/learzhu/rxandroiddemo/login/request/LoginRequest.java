@@ -17,6 +17,15 @@ import okio.BufferedSink;
  * @used {@link }
  */
 public class LoginRequest extends RequestBody {
+    private String name;
+
+    public LoginRequest() {
+    }
+
+    public LoginRequest(String name) {
+        this.name = name;
+    }
+
     @Override
     public MediaType contentType() {
         return null;
@@ -24,5 +33,13 @@ public class LoginRequest extends RequestBody {
 
     @Override
     public void writeTo(BufferedSink sink) throws IOException {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

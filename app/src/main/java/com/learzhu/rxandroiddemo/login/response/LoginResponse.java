@@ -11,6 +11,10 @@ package com.learzhu.rxandroiddemo.login.response;
  * @used {@link }
  */
 public class LoginResponse {
+    public LoginResponse(String status) {
+        this.status = status;
+    }
+
     private String status;
 
     public String getStatus() {

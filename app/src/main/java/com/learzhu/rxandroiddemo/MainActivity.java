@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learzhu.rxandroiddemo.data.Data;
+import com.learzhu.rxandroiddemo.login.LoginActivity;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity1;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity2;
 import com.learzhu.rxandroiddemo.rxandroid_test.RxAndroidActivity3;
@@ -112,6 +113,7 @@ public class MainActivity<onDestory> extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 readNovel();
+                LoginActivity.actionStart(MainActivity.this);
             }
         });
         mDrawableArrayAdapter = new ArrayAdapter<Drawable>(this, android.R.layout.simple_list_item_1, mDrawables);
